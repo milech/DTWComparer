@@ -11,6 +11,17 @@ import time
 from matplotlib import pyplot as plt
 
 
+def timer4main(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        rv = func(*args, **kwargs)
+        total = time.time() - start
+        print(f"Execution time of the whole programme is: {total}\n")
+        return rv
+
+    return wrapper
+
+
 def timer(func):
     def wrapper(self, *args, **kwargs):
         start = time.time()
@@ -30,6 +41,11 @@ def print2console(func):
                 print(f"Parameter {no} is {result}\n")
         except BaseException as err:
             print(f"This particular result cannot be printed to the console. Reason: {err}.\n")
+
+        # try:
+        #     print(f"Parameter {len(rv)-1} is {rv[-1]}\n")
+        # except BaseException as err:
+        #     print(f"This particular result cannot be printed to the console. Reason: {err}.\n")
 
         return rv
 
