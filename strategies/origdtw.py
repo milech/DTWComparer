@@ -19,6 +19,7 @@ from mydecorators import *
 
 class DTWOrigStrategy(DTWStrategy):
     def __init__(self):
+        self.__name = "Original DTW"
         self.__costMatrix = None
         self.__distanceMatrix = None
         self.__total_cost = .0
@@ -43,7 +44,7 @@ class DTWOrigStrategy(DTWStrategy):
                                                                                 self.__costMatrix[i, j - 1]])
         self.__traceback_path()
 
-        return [self.__costMatrix, self.__distanceMatrix, self.__total_cost]
+        return [self.__name, self.__costMatrix, self.__distanceMatrix, self.__total_cost]
 
     def __traceback_path(self) -> None:
         r = self.__costMatrix.shape[0] - 1

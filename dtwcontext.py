@@ -13,6 +13,7 @@ from dtwstrategy import DTWStrategy
 
 class DTWContext:
     def __init__(self, dtw_strategy: DTWStrategy) -> None:
+        self.__name = None
         self.__costMatrix = None
         self.__distanceMatrix = None
         self.__total_cost = None
@@ -44,6 +45,7 @@ class DTWContext:
         self.__dtw_strategy = dtw_strategy
 
     def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> None:
-        [self.__costMatrix,
+        [self.__name,
+         self.__costMatrix,
          self.__distanceMatrix,
          self.__total_cost] = self.__dtw_strategy.do_algorithm(function_1, function_2)
