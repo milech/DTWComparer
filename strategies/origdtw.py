@@ -9,7 +9,6 @@
 
 from typing import List, Union, Any
 import numpy as np
-from numpy import ndarray
 from numpy.typing import NDArray
 from dtwstrategy import DTWStrategy
 from mydecorators import *
