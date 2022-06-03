@@ -15,6 +15,6 @@ from mydecorators import timer
 
 class DTWStudentStrategy(DTWStrategy):
     @timer
-    def do_algorithm(self, f: NDArray, g: NDArray) -> List[Union[NDArray, Any]]:
+    def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[NDArray, Any]]:
         # students' code to be placed here
         return [None, None, None]

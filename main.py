@@ -15,6 +15,7 @@ from dtwcontext import DTWContext
 from dtwstrategy import DTWStrategy
 from strategies.origdtw import DTWOrigStrategy
 from strategies.dtwpython import DTWPythonStrategy
+from strategies.fastdtwstrat import FastDTWStrategy
 # from strategies.studentdtw import DTWStudentStrategy
 from mydecorators import timer4main
 
@@ -48,7 +49,7 @@ def main():
     function_2 = (np.random.uniform(0.1, 4)) * np.sin(l_space + np.random.rand(1) * np.pi)
 
     # dtw_strategies = [DTWOrigStrategy(), DTWPythonStrategy(), DTWStudentStrategy()]
-    dtw_strategies = [DTWOrigStrategy(), DTWPythonStrategy()]
+    dtw_strategies = [DTWOrigStrategy(), DTWPythonStrategy(), FastDTWStrategy()]
     run_strategies(dtw_strategies, function_1, function_2)
 
 

@@ -19,7 +19,7 @@ class DTWPythonStrategy(DTWStrategy):
     @plotresults
     @print2console
     @timer
-    def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[ndarray, Any]]:
+    def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[NDArray, Any]]:
         # Find the best match with the canonical recursion formula
         alignment = dtw(function_1, function_2, keep_internals=True)
         return [alignment.costMatrix, alignment.localCostMatrix, alignment.distance]
