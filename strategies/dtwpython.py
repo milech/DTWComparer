@@ -17,7 +17,7 @@ from mydecorators import *
 
 class DTWPythonStrategy(DTWStrategy):
     @plotresults
-    @print2console
+    @printcost2console
     @timer
     def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[NDArray, Any]]:
         # Find the best match with the canonical recursion formula

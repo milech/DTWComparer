@@ -16,7 +16,7 @@ def timer4main(func):
         start = time.time()
         rv = func(*args, **kwargs)
         total = time.time() - start
-        print(f"Execution time of the whole programme is: {total}\n")
+        print(f"Execution time of the whole programme is: {total} s\n")
         return rv
 
     return wrapper
@@ -27,13 +27,13 @@ def timer(func):
         start = time.time()
         rv = func(self, *args, **kwargs)
         total = time.time() - start
-        print(f"Execution time for {type(self)} is: {total}\n")
+        print(f"Execution time for {type(self)} is: {total} s\n")
         return rv
 
     return wrapper
 
 
-def print2console(func):
+def printall2console(func):
     def wrapper(*args, **kwargs):
         rv = func(*args, **kwargs)
         try:
@@ -46,6 +46,20 @@ def print2console(func):
         #     print(f"Parameter {len(rv)-1} is {rv[-1]}\n")
         # except BaseException as err:
         #     print(f"This particular result cannot be printed to the console. Reason: {err}.\n")
+
+        return rv
+
+    return wrapper
+
+
+def printcost2console(func):
+    def wrapper(*args, **kwargs):
+        rv = func(*args, **kwargs)
+
+        try:
+            print(f"Parameter {len(rv)-1} is {rv[-1]}\n")
+        except BaseException as err:
+            print(f"This particular result cannot be printed to the console. Reason: {err}.\n")
 
         return rv
 

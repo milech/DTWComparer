@@ -25,7 +25,7 @@ class DTWOrigStrategy(DTWStrategy):
         self.__path = np.empty((0, 2))
 
     @plotresults
-    @print2console
+    @printcost2console
     @timer
     def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[NDArray, Any]]:
         f_len = np.size(function_1)
