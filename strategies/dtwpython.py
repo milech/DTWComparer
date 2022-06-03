@@ -10,7 +10,7 @@
 from typing import List, Any, Union
 from numpy import ndarray
 from numpy.typing import NDArray
-from dtw import dtw
+from dtw import dtw     # dtw-python package (T. Giorgino)
 from dtwstrategy import DTWStrategy
 from mydecorators import *
 

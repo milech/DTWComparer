@@ -27,14 +27,17 @@ class DTWOrigStrategy(DTWStrategy):
     @plotresults
     @print2console
     @timer
-    def do_algorithm(self, function_1: NDArray, function_2: NDArray) -> List[Union[ndarray, Any]]:
-        self.__costMatrix = np.full((np.size(function_1), np.size(function_2)), np.inf)
+    def do_algorithm(self, f: NDArray, g: NDArray) -> List[Union[ndarray, Any]]:
+        f_len = np.size(f)
+        g_len = np.size(g)
+
+        self.__costMatrix = np.full((f_len, g_len), np.inf)
         self.__costMatrix[0, 0] = .0
 
-        self.__distanceMatrix = np.abs(function_1[:, None] - function_2[None, :])
+        self.__distanceMatrix = np.abs(f[:, None] - g[None, :])
 
-        for i in range(1, np.size(function_1)):
-            for j in range(1, np.size(function_2)):
+        for i in range(1, f_len):
+            for j in range(1, g_len):
                 self.__costMatrix[i, j] = self.__distanceMatrix[i, j] + np.min([self.__costMatrix[i - 1, j - 1],
                                                                                 self.__costMatrix[i - 1, j],
                                                                                 self.__costMatrix[i, j - 1]])
